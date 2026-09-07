@@ -1,24 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "sonner";
+import { CartProvider } from "@/lib/cart";
+import { Nav } from "@/components/poppd/Nav";
+import { Hero } from "@/components/poppd/Hero";
+import { MenuSection } from "@/components/poppd/MenuSection";
+import { CartDrawer } from "@/components/poppd/CartDrawer";
+import { Marquee, Why, Story, Gram, Location, Footer } from "@/components/poppd/Sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "POPP'd — Burgers, Hotdogs & Loaded Bites in Jubilee Hills";
+const description =
+  "POPP'd serves smashed burgers, loaded hotdogs, fries and shakes at The Hive Drive-In, Jubilee Hills, Hyderabad. Made to make your tastebuds pop.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <CartProvider>
+      <Nav />
+      <main>
+        <Hero />
+        <Marquee />
+        <MenuSection />
+        <Why />
+        <Story />
+        <Gram />
+        <Location />
+      </main>
+      <Footer />
+      <CartDrawer />
+      <Toaster theme="dark" position="bottom-center" />
+    </CartProvider>
   );
 }
