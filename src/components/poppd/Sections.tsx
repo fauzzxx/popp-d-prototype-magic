@@ -55,7 +55,7 @@ export function Story() {
         <Reveal>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={MENU[0].image}
+              src={MENU[0]!.image}
               alt="Smashed burger"
               loading="lazy"
               width={800}
@@ -63,7 +63,7 @@ export function Story() {
               className="w-full -rotate-3 rounded-3xl object-cover shadow-xl"
             />
             <img
-              src={MENU[3].image}
+              src={MENU[3]!.image}
               alt="Loaded fries"
               loading="lazy"
               width={800}
