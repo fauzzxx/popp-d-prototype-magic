@@ -46,30 +46,31 @@
 
 :root {
   --radius: 1.25rem;
-  --background: oklch(0.16 0.012 60);
-  --foreground: oklch(0.97 0.012 90);
-  --card: oklch(0.21 0.014 60);
-  --card-foreground: oklch(0.97 0.012 90);
-  --popover: oklch(0.19 0.013 60);
-  --popover-foreground: oklch(0.97 0.012 90);
-  --primary: oklch(0.86 0.19 96);
-  --primary-foreground: oklch(0.17 0.02 60);
-  --secondary: oklch(0.26 0.016 60);
-  --secondary-foreground: oklch(0.97 0.012 90);
-  --muted: oklch(0.26 0.016 60);
-  --muted-foreground: oklch(0.72 0.02 80);
-  --accent: oklch(0.63 0.23 27);
-  --accent-foreground: oklch(0.98 0.01 90);
-  --destructive: oklch(0.63 0.23 27);
-  --destructive-foreground: oklch(0.98 0.01 90);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.86 0.19 96);
-  --pop: oklch(0.86 0.19 96);
-  --pop-foreground: oklch(0.17 0.02 60);
-  --flame: oklch(0.63 0.23 27);
-  --cream: oklch(0.96 0.02 85);
-  --ink: oklch(0.14 0.012 60);
+  /* POPP'd brand palette, sampled from the @poppd.ind logo. */
+  --background: #02268f;
+  --foreground: #f5f8fb;
+  --card: #06237c;
+  --card-foreground: #f5f8fb;
+  --popover: #061d67;
+  --popover-foreground: #f5f8fb;
+  --primary: #f5f8fb;
+  --primary-foreground: #02268f;
+  --secondary: #1239a4;
+  --secondary-foreground: #f5f8fb;
+  --muted: #1239a4;
+  --muted-foreground: #c8d5ff;
+  --accent: #91b8ff;
+  --accent-foreground: #021750;
+  --destructive: #91b8ff;
+  --destructive-foreground: #021750;
+  --border: rgb(245 248 251 / 22%);
+  --input: rgb(245 248 251 / 28%);
+  --ring: #f5f8fb;
+  --pop: #f5f8fb;
+  --pop-foreground: #02268f;
+  --flame: #91b8ff;
+  --cream: #f5f8fb;
+  --ink: #001249;
 }
 
 @keyframes marquee {
@@ -139,5 +140,16 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     text-transform: uppercase;
+  }
+
+  [data-sonner-toast] {
+    background: var(--popover) !important;
+    color: var(--popover-foreground) !important;
+    border-color: var(--border) !important;
+  }
+
+  [data-sonner-toast] [data-button] {
+    background: var(--pop) !important;
+    color: var(--pop-foreground) !important;
   }
 }
