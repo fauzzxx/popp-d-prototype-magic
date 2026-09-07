@@ -25,11 +25,7 @@ export function Reveal({
       }
     });
     io.observe(el);
-    const fallback = window.setTimeout(() => setShown(true), 1200);
-    return () => {
-      io.disconnect();
-      window.clearTimeout(fallback);
-    };
+    return () => io.disconnect();
   }, []);
 
   return (
